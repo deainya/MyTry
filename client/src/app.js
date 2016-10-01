@@ -5,5 +5,5 @@ angular.module('rfbgo', [])
   //this.points = ["Test1","Test2"];
   $http.get('/tradepoints').then((response) => {
     this.points = response.data;
-  })
+  });
 })
