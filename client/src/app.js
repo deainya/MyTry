@@ -6,7 +6,7 @@ angular.module('rfbgo', ["ui.router"])
   $urlRouterProvider.otherwise('/tradepoints')
 
   $stateProvider
-  .state('tradepoints' {
+  .state('tradepoints', {
     url:'/tradepoints',
     templateUrl:'tradepoints/tradepoints-nav.html',
     controller: function ($http){
