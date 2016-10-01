@@ -38,13 +38,13 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'sellersCtrl'
   })
 
-  .state('neworder', {
-    url: '/neworder',
+  .state('partners.neworder', {
+    url: '/partners/neworder',
     templateUrl: 'tradepoints/new-order.html',
     controller: function($stateParams, $state, $http){
       this.saveOrder = function(order){
-        $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-          $state.go('sports.medals', {sportName: $stateParams.sportName});
+        $http({method: 'POST', url: `/partners/neworder`, data: {order}}).then(function(){
+          $state.go('orders.order');
         });
       };
     },
