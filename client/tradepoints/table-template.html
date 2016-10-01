@@ -2,15 +2,19 @@
 
 <table>
   <thead>
-    <th>Header 1</th>
-    <th>Header 2</th>
-    <th>Header 3</th>
+    <th>Name/th>
+    <th>E-mail</th>
+    <th>Trade point</th>
+    <th>Address</th>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr ng-repeat="seller in sellersCtrl.sellers">
+      <td>{{ seller.name }}</td>
+      <td>{{ seller.email }}</td>
+      <td>{{ seller.tradepoint }}</td>
+      <td>{{ seller.address }}</td>
     </tr>
   </tbody>
 </table>
+
+<a ui-sref="partners">list of tradepoints</a>

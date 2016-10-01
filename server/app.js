@@ -12,13 +12,23 @@ app.get("/tradepoints", (request, response) => {
   //response.json( ["Test3","Test4"] );
   let points = mongoUtil.tradepoints(); //Assigning tradepoints collection
   points.find().toArray((err,docs) => { //making ~select request
-    if(err) {
-      response.sendStatus(400);
-    }
+    if(err) { response.sendStatus(400); } //Error status
     console.log(JSON.stringify(docs)); //loging to CON
-    let pointNames = docs.map((point) => point.name);
+    let pointNames = docs.map((point) => point.name.concat(". ", point.address)); //mapping the Array
     response.json( pointNames );
   });
 });
+
+app.get("/partners", (request, response) => {
+  let sellers = mongoUtil.partners();
+  sellers.find().toArray((err,docs) => {
+    if(err) { response.sendStatus(400); }
+    console.log(JSON.stringify(docs));
+    let sellerNames = docs.map((seller) => seller.name);
+    response.json( sellerNames );
+  });
+});
+
+
 
 app.listen(3001, () => console.log( "Listening on 3001" ) );

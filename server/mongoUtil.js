@@ -18,4 +18,7 @@ module.exports = {
   tradepoints(){
     return _db.collection('tradepoints');
   }
+  partners(){
+    return _db.collection('partners');
+  }
 }

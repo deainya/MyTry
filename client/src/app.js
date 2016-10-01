@@ -7,14 +7,35 @@ angular.module('rfbgo', ["ui.router"])
 
   $stateProvider
   .state('tradepoints', {
-    url:'/tradepoints',
-    templateUrl:'tradepoints/tradepoints-nav.html',
-    controller: function ($http){
+    url: '/tradepoints',
+    templateUrl: 'tradepoints/tradepoints-nav.html',
+    resolve: {
+      tradepointsService: function($http){
+        return $http.get('/tradepoints');
+      }
+    }
+    controller: function (tradepointsService){
       //this.points = ["Test1","Test2"];
-      $http.get('/tradepoints').then((response) => {
-        this.points = response.data;
-      });
+      //$http.get('/tradepoints').then((response) => {
+        //this.points = response.data;
+      //});
+      this.points = tradepointsService.data;
     },
     controllerAs: 'pointsCtrl'
   })
+
+  .state('partners', {
+    url: '/partners',
+    templateUrl: 'tradepoints/table-template.html',
+    resolve: {
+      partnersService: function($http){
+        return $http.get('/partners');
+      }
+    }
+    controller: function (partnersService){
+      this.sellers = partnersService.data;
+    },
+    controllerAs: 'sellersCtrl'
+  })
+
 })
