@@ -13,7 +13,7 @@ angular.module('rfbgo', ["ui.router"])
       tradepointsService: function($http){
         return $http.get('/tradepoints');
       }
-    }
+    },
     controller: function (tradepointsService){
       //this.points = ["Test1","Test2"];
       //$http.get('/tradepoints').then((response) => {
@@ -31,7 +31,7 @@ angular.module('rfbgo', ["ui.router"])
       partnersService: function($http){
         return $http.get('/partners');
       }
-    }
+    },
     controller: function (partnersService){
       this.sellers = partnersService.data;
     },
