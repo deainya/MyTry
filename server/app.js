@@ -21,10 +21,10 @@ app.get("/tradepoints", (request, response) => {
 
 app.get("/partners", (request, response) => {
   let sellers = mongoUtil.partners();
-  sellers.find().limit(1).next((err,doc) => {
+  sellers.find().toArray((err,docs) => { //limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
-    console.log( "Seller: ", doc );
-    response.json( doc );
+    console.log(JSON.stringify(docs));
+    response.json( docs );
   });
 });
 
