@@ -38,7 +38,7 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'sellersCtrl'
   })
 
-  .state('partners.neworder', {
+  .state('neworder', {
     url: '/partners/neworder',
     templateUrl: 'tradepoints/new-order.html',
     controller: function($stateParams, $state, $http){
