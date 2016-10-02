@@ -29,9 +29,9 @@ angular.module('rfbgo', ["ui.router"])
       }
     },
     controller: function (partnersService){
-      this.sellers = partnersService.data;
+      this.seller = partnersService.data;
     },
-    controllerAs: 'sellersCtrl'
+    controllerAs: 'sellerCtrl'
   })
 
   .state('consultant', {
