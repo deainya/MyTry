@@ -19,8 +19,8 @@ app.get("/tradepoints", (request, response) => {
 });
 
 app.get("/partners", (request, response) => {
-  let res = mongoUtil.partners();
-  res.find().limit(1).next((err,doc) => {
+  let seller = mongoUtil.partners();
+  seller.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
     console.log(JSON.stringify(doc));
     response.json( doc );
@@ -28,8 +28,8 @@ app.get("/partners", (request, response) => {
 });
 
 app.get("/consultant", (request, response) => {
-  let res = mongoUtil.consultant();
-  res.find().limit(1).next((err,doc) => {
+  let consul = mongoUtil.consultant();
+  consul.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
     console.log(JSON.stringify(doc));
     response.json( doc );
