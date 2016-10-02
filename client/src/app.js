@@ -53,9 +53,8 @@ angular.module('rfbgo', ["ui.router"])
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http){
       this.saveOrder = function(order){
-        $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-          $state.go('orders.order');
-        });
+          $http.post('/neworder', {order});
+        };
       };
     },
     controllerAs: 'newOrderCtrl'

@@ -36,4 +36,22 @@ app.get("/consultant", (request, response) => {
   });
 });
 
+app.post("/neworder", jsonParser, (request, response) => {
+  let newOrder = request.body.order || {};
+  console.log(JSON.stringify(newOrder));
+
+  //let orders = mongoUtil.orders();
+  //let query = {name: sportName};
+  //let update = {$push: {goldMedals: newMedal}};
+
+  /*sports.findOneAndUpdate(query, update, (err, res) => {
+    if(err){
+      response.sendStatus(400);
+    }
+    response.sendStatus(201);
+  });*/
+});
+
+
+
 app.listen(3001, () => console.log( "Listening on 3001" ) );
