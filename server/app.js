@@ -13,17 +13,26 @@ app.get("/tradepoints", (request, response) => {
   points.find().toArray((err,docs) => {
     if(err) { response.sendStatus(400); }
     console.log(JSON.stringify(docs));
-    let pointNames = docs.map((point) => point.name.concat(". ", point.address)); //mapping the Array
+    let pointNames = docs.map((point) => point.name.concat(". ", point.address));
     response.json( pointNames );
   });
 });
 
 app.get("/partners", (request, response) => {
-  let sellers = mongoUtil.partners();
-  sellers.find().limit(1).next((err,doc) => {
+  let res = mongoUtil.partners();
+  res.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
-    console.log(JSON.stringify(docs));
-    response.json( docs );
+    console.log(JSON.stringify(doc));
+    response.json( doc );
+  });
+});
+
+app.get("/consultants", (request, response) => {
+  let res = mongoUtil.consultant();
+  res.find().limit(1).next((err,doc) => {
+    if(err) { response.sendStatus(400); }
+    console.log(JSON.stringify(doc));
+    response.json( doc );
   });
 });
 
