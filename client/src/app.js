@@ -55,8 +55,8 @@ angular.module('rfbgo', ["ui.router"])
       this.saveOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: '/neworder', data: {order}}).then(function(){
-            //$state.go('partners');
-            $state.go('partners', null, { reload: true });
+            $state.go('tradepoints');
+            //$state.go('partners', null, { reload: true });
           });
       };
     },
