@@ -1,0 +1,25 @@
+<form name="newOrderForm" ng-submit="newOrderCtrl.saveOrder(order)"/>
+
+  <h2>Create order</h2>
+<br>
+  <div>
+    <label class="form-label" for="client">Имя клиента:</label>
+    <input class="form-input" id="client" required ng-model="order.client"/>
+  </div>
+<br>
+  <div>
+    <label class="form-label" for="phone">Номер телефона:</label>
+    <input class="form-input" id="phone" required ng-model="order.contact.phone"/>
+  </div>
+<br>
+  <div>
+    <label class="form-label" for="email">E-mail:</label>
+    <input class="form-input" id="email" required ng-model="order.contact.email"/>
+  </div>
+<br>
+  <input type="submit" value="Создать" />
+
+</form>
+
+Two way binding information:
+{{ order }}

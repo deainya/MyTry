@@ -1,0 +1,28 @@
+<h2>Partner</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Партнёр:</td>
+      <td>{{ seller.name }}</td>
+    </tr>
+    <tr>
+      <td>E-mail:</td>
+      <td>{{ seller.email }}</td>
+    </tr>
+    <tr>
+      <td>Торговая точка:</td>
+      <td>{{ seller.tradepoint }}</td>
+    </tr>
+    <tr>
+      <td>Адрес:</td>
+      <td>{{ seller.address }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--p> <a ui-sref="tradepoints">list of tradepoints</a> </p-->
+
+<p> <a ui-sref="partners.neworder">Create Order</a> </p>
+
+<div ui-view></div>

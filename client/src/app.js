@@ -8,17 +8,13 @@ angular.module('rfbgo', ["ui.router"])
   $stateProvider
   .state('tradepoints', {
     url: '/tradepoints',
-    templateUrl: 'tradepoints/tradepoints-nav.html',
+    templateUrl: 'templates/tradepoints.html',
     resolve: {
       tradepointsService: function($http){
         return $http.get('/tradepoints');
       }
     },
     controller: function (tradepointsService){
-      //this.points = ["Test1","Test2"];
-      //$http.get('/tradepoints').then((response) => {
-        //this.points = response.data;
-      //});
       this.points = tradepointsService.data;
     },
     controllerAs: 'pointsCtrl'
@@ -26,7 +22,7 @@ angular.module('rfbgo', ["ui.router"])
 
   .state('partners', {
     url: '/partners',
-    templateUrl: 'tradepoints/table-template.html',
+    templateUrl: 'templates/partner.html',
     resolve: {
       partnersService: function($http){
         return $http.get('/partners');
@@ -38,9 +34,23 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'sellersCtrl'
   })
 
+  .state('consultant', {
+    url: '/consultant',
+    templateUrl: 'templates/consultant.html',
+    resolve: {
+      consultantService: function($http){
+        return $http.get('/consultant');
+      }
+    },
+    controller: function (consultantService){
+      this.consultant = consultantService.data;
+    },
+    controllerAs: 'consultantCtrl'
+  })
+
   .state('partners.neworder', {
     url: '/neworder',
-    templateUrl: 'tradepoints/new-order.html',
+    templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http){
       this.saveOrder = function(order){
         $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
@@ -50,6 +60,5 @@ angular.module('rfbgo', ["ui.router"])
     },
     controllerAs: 'newOrderCtrl'
   })
-
 
 })
