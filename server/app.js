@@ -27,7 +27,7 @@ app.get("/partners", (request, response) => {
   });
 });
 
-app.get("/consultants", (request, response) => {
+app.get("/consultant", (request, response) => {
   let res = mongoUtil.consultant();
   res.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
