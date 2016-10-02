@@ -15,7 +15,7 @@ app.get("/tradepoints", (request, response) => {
   let points = mongoUtil.tradepoints();
   points.find().toArray((err,docs) => {
     if(err) { response.sendStatus(400); }
-    console.log(JSON.stringify(docs));
+    console.log (JSON.stringify(docs) );
     let pointNames = docs.map((point) => point.name.concat(". ", point.address));
     response.json( pointNames );
   });
@@ -25,7 +25,7 @@ app.get("/partners", (request, response) => {
   let seller = mongoUtil.partners();
   seller.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
-    console.log(JSON.stringify(doc));
+    console.log( JSON.stringify(doc) );
     response.json( doc );
   });
 });
@@ -34,14 +34,14 @@ app.get("/consultant", (request, response) => {
   let consul = mongoUtil.consultant();
   consul.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
-    console.log(JSON.stringify(doc));
+    console.log( JSON.stringify(doc) );
     response.json( doc );
   });
 });
 
 app.post("/neworder", jsonParser, (request, response) => {
   let newOrder = request.body.order || {};
-  console.log(JSON.stringify(newOrder));
+  console.log( "Got from \"post\" method on /neworder url: " + JSON.stringify(newOrder) );
 
   //let orders = mongoUtil.orders();
   //let query = {name: sportName};
