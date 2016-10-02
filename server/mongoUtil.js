@@ -21,10 +21,10 @@ module.exports = {
   partners(){
     return _db.collection('partners');
   }
-  partners(){
+  consultant(){
     return _db.collection('consultant`');
   }
-  partners(){
+  orders(){
     return _db.collection('orders');
   }
 }
