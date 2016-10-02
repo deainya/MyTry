@@ -8,6 +8,9 @@ mongoUtil.connect();
 
 app.use( express.static(__dirname + "/../client") );
 
+let bodyParser = require("body-parser");
+let jsonParser = bodyParser.json();
+
 app.get("/tradepoints", (request, response) => {
   let points = mongoUtil.tradepoints();
   points.find().toArray((err,docs) => {
