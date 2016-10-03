@@ -48,6 +48,11 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'consultantCtrl'
   })
 
+  .state('partners.orders', {
+    url: '/orders',
+    templateUrl: 'templates/orders.html'
+  })
+
   .state('partners.neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
@@ -60,11 +65,6 @@ angular.module('rfbgo', ["ui.router"])
       };
     },
     controllerAs: 'newOrderCtrl'
-  })
-
-  .state('partners.orders', {
-    url: '/orders',
-    templateUrl: 'templates/orders.html'
   })
 
 })
