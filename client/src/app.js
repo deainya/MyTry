@@ -30,6 +30,7 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: function (partnersService){
       this.seller = partnersService.data;
+      $state.go("partners.orders");
     },
     controllerAs: 'sellerCtrl'
   })
@@ -62,7 +63,7 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'ordersCtrl'
   })
 
-  .state('neworder', {
+  .state('partners.neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http){
