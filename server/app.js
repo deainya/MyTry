@@ -56,17 +56,14 @@ app.post("/neworder", jsonParser, (request, response) => {
 
   orders.insert(newOrder, function(err, result){
     if(err) { response.sendStatus(400); }
-    console.log( "Got from \"post\" method on /neworder url: " + JSON.stringify(newOrder) );
+    console.log( "Added new order: " + JSON.stringify(newOrder) );
+    response.sendStatus(201);
   });
-
   //let orders = mongoUtil.orders();
   //let query = {name: sportName};
   //let update = {$push: {goldMedals: newMedal}};
-
   /*sports.findOneAndUpdate(query, update, (err, res) => {
-    if(err){
-      response.sendStatus(400);
-    }
+    if(err){ response.sendStatus(400); }
     response.sendStatus(201);
   });*/
 });
