@@ -48,7 +48,7 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'consultantCtrl'
   })
 
-  .state('orders', {
+  .state('partners.orders', {
     url: '/orders',
     templateUrl: 'templates/orders.html',
     resolve: {
@@ -69,7 +69,7 @@ angular.module('rfbgo', ["ui.router"])
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-            $state.go("orders");
+            $state.go("partners.orders");
         });
       };
     },
