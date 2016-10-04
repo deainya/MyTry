@@ -54,7 +54,7 @@ app.post("/neworder", jsonParser, (request, response) => {
   let newOrder = request.body.order || {};
   let orders = mongoUtil.orders();
 
-  orders.insert(newOrder)((err,docs) => {
+  orders.insert(newOrder, function(err, result){
     if(err) { response.sendStatus(400); }
     console.log( "Got from \"post\" method on /neworder url: " + JSON.stringify(newOrder) );
   });
