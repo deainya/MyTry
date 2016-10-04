@@ -50,7 +50,7 @@ angular.module('rfbgo', ["ui.router"])
 
   .state('orders', {
     url: '/orders',
-    templateUrl: 'templates/orders.html'
+    templateUrl: 'templates/orders.html',
     resolve: {
       ordersService: function($http){
         return $http.get('/orders');
