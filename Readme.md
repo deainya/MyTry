@@ -15,3 +15,13 @@
 * Seed database with partners: `mongoimport -u user -p pass --db partnergo-dev --collection partners --type json --file server/json/partners-seed.json --jsonArray --drop`
 * Seed database with consultant: `mongoimport -u user -p pass --db partnergo-dev --collection consultant --type json --file server/json/consultant-seed.json --jsonArray --drop`
 * Seed database with consultant: `mongoimport -u user -p pass --db partnergo-dev --collection orders --type json --file server/json/orders-seed.json --jsonArray --drop`
+
+
+
+[Status]
+InQueue - в очереди [продавец] :: тык в создать
+Assigned - назначена [консультант] :: тык в принять
+Cancelled - отменена [продавец] :: тык в отмену
+Accepted - принята (клиент согласен на кредит после консультирования) ?? какой-то ввод каких-то данных
+Approved - кредит одобрен :: номер анкеты
+Declined - в кредите отказано :: номер анкеты

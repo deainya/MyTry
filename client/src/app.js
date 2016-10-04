@@ -48,19 +48,28 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'consultantCtrl'
   })
 
-  .state('partners.orders', {
+  .state('orders', {
     url: '/orders',
     templateUrl: 'templates/orders.html'
+    resolve: {
+      ordersService: function($http){
+        return $http.get('/orders');
+      }
+    },
+    controller: function (ordersService){
+      this.orders = ordersService.data;
+    },
+    controllerAs: 'ordersCtrl'
   })
 
-  .state('partners.neworder', {
+  .state('neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http){
-      this.saveOrder = function(order){
+      this.addOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: '/neworder', data: {order}}).then(function(){
-            $state.go('partners.orders');
+            $state.go('orders');
           });
       };
     },

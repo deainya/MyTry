@@ -32,6 +32,7 @@ app.get("/partners", (request, response) => {
 
 app.get("/consultant", (request, response) => {
   let consul = mongoUtil.consultant();
+
   consul.find().limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
     console.log( JSON.stringify(doc) );
@@ -39,9 +40,24 @@ app.get("/consultant", (request, response) => {
   });
 });
 
+app.get("/orders", (request, response) => {
+  let orders = mongoUtil.orders();
+
+  orders.find().toArray((err,docs) => {
+    if(err) { response.sendStatus(400); }
+    console.log (JSON.stringify(docs) );
+    response.json( docs );
+  });
+});
+
 app.post("/neworder", jsonParser, (request, response) => {
   let newOrder = request.body.order || {};
-  console.log( "Got from \"post\" method on /neworder url: " + JSON.stringify(newOrder) );
+  let orders = mongoUtil.orders();
+
+  orders.insert(newOrder)((err,docs) => {
+    if(err) { response.sendStatus(400); }
+    console.log( "Got from \"post\" method on /neworder url: " + JSON.stringify(newOrder) );
+  });
 
   //let orders = mongoUtil.orders();
   //let query = {name: sportName};
