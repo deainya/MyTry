@@ -33,9 +33,7 @@ angular.module('rfbgo', ["ui.router"])
       console.log(Partner.all().data);
       console.log(Partner.sell);
 
-      Partner.all().then(function(data){
-        this.seller = data;
-      });
+      this.seller = Partner.all();
 
     }],
     controllerAs: 'sellerCtrl'
