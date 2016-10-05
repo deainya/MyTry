@@ -28,10 +28,10 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: ['Partner', function (Partner){
+    controller: function (Partner){
       this.seller = Partner.partner(); //partnersService.data;
       console.log(this.seller);
-    }],
+    },
     controllerAs: 'sellerCtrl'
   })
 
@@ -79,12 +79,12 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
-.factory('Partner', ['$http', function PartnerFactory($http){
+.factory('Partner', function PartnerFactory($http){
   return {
     partner: function(){
-      var seller = $http.get('/partners');
-      console.log(seller);
-      return seller;
+      //var seller = $http.get('/partners');
+      //console.log(seller);
+      return $http.get('/partners');//seller;
     },
     neworder: function(order){
       /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
@@ -93,4 +93,4 @@ angular.module('rfbgo', ["ui.router"])
       console.log(order||this.seller);
     }
   }
-}])
+})
