@@ -32,7 +32,7 @@ angular.module('rfbgo', ["ui.router"])
     controller: ['Partner', function (Partner){
       this.seller = Partner.all().data;
       console.log(Partner.sell);
-    },
+    }],
     controllerAs: 'sellerCtrl'
   })
 
