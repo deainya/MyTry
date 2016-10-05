@@ -2,6 +2,21 @@ import angular from 'angular'
 import 'angular-ui-router'
 angular.module('rfbgo', ["ui.router"])
 
+.factory("Partner", ['$http', function PartnerFactory($http)){
+  return {
+    partner: function(){
+      this.seller = $http.get('/partners');
+      return this.seller;
+    },
+    neworder: function(order){
+      /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
+        $state.go("orders");
+      });*/
+      console.log(order||this.seller);
+    }
+  }
+}])
+
 .config(($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/')
 
@@ -65,9 +80,8 @@ angular.module('rfbgo', ["ui.router"])
   .state('neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
-    controller: function($stateParams, $state, $http, Partner){
-      this.addOrder = Partner.neworder(order);
-      /*function(order){
+    controller: function($stateParams, $state, $http){
+      this.addOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");
@@ -77,19 +91,4 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'newOrderCtrl'
   })
 
-})
-
-.factory("Partner", function(PartnerFactory){
-  return {
-    partner: function(){
-      this.seller = $http.get('/partners');
-      return seller;
-    },
-    neworder: function(order){
-      $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-        $state.go("orders");
-      });
-      console.log(order||seller);
-    }
-  }
 })
