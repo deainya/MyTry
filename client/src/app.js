@@ -28,8 +28,8 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: function (partnersService){
-      this.seller = partnersService.data;
+    controller: function (partnerService){
+      this.seller = partnerService.data;
     },
     controllerAs: 'sellerCtrl'
   })
@@ -65,10 +65,10 @@ angular.module('rfbgo', ["ui.router"])
   .state('neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
-    controller: function($stateParams, $state, $http){
+    controller: function($stateParams, $state, $http, partnerService){
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
-          $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
+          $http({method: 'POST', url: `/neworder`, data: {order||partnerService.data}}).then(function(){
             $state.go("orders");
         });
       };
@@ -76,4 +76,8 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'newOrderCtrl'
   })
 
+})
+
+.service('partnerService', function($http){
+  return $http.get('/partners');
 })
