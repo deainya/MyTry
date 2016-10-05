@@ -71,7 +71,7 @@ angular.module('rfbgo', ["ui.router"])
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");
         });
-      };*/
+      };
     },
     controllerAs: 'newOrderCtrl'
   })
