@@ -81,12 +81,10 @@ angular.module('rfbgo', ["ui.router"])
 
 .factory('Partner', function PartnerFactory($http){
   return {
-    resolve: {
-      partner: function(){
-      //var seller = $http.get('/partners');
-      //console.log(seller);
+    partner: function(){
+      this.seller = $http.get('/partners');
+      console.log(seller.data);
       return $http.get('/partners');//seller;
-      }
     },
     neworder: function(order){
       /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
