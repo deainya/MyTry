@@ -106,8 +106,8 @@ angular.module('rfbgo', ["ui.router"])
       };
 
       var coordinates = [53.2000600, 50.1500000];
-      for (var i=0; i < orders.length; i++) {
-        this.leads[i] = new Leads(coordinates, orders[i]._id, orders[i].status, orders[i].address, orders[i].tradepoint, orders[i].client, orders[i].date);
+      for (var i=0; i < this.orders.length; i++) {
+        this.leads[i] = new Leads(coordinates, this.orders[i]._id, this.orders[i].status, this.orders[i].address, this.orders[i].tradepoint, this.orders[i].client, this.orders[i].date);
       };
 
     },
