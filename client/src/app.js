@@ -80,9 +80,9 @@ angular.module('rfbgo', ["ui.router"])
 })
 
 .factory('Partner', function PartnerFactory($http){
-  partner: function(data){
-    this.p = data;
-    console.log(this.p);
+  this.partner = function(data){
+    this.partner = data;
+    console.log(this.partner);
   }/*,
     return {
     neworder: function(order){
