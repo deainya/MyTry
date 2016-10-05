@@ -89,7 +89,9 @@ angular.module('rfbgo', ["ui.router"])
   return {
     all: function(){
       this.sell = {"xxx":"yyy"};
-      return $http.get('/partners');
+      return $http.get('/partners').then(function(data){
+        return data;
+      });
     }/*,
     neworder: function(order){
       $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
