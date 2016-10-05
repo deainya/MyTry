@@ -25,12 +25,13 @@ angular.module('rfbgo', ["ui.router"])
     templateUrl: 'templates/partner.html',
     resolve: {
       partnersService: function($http){
+        this.partner = "xxx"
         return $http.get('/partners');
       }
     },
-    controller: function (partner){
-      this.seller = partner.data;
-      console.log(partner.partner);
+    controller: function (partnersService){
+      this.seller = partnersService.data;
+      console.log(partnersService.partner);
     },
     controllerAs: 'sellerCtrl'
   })
