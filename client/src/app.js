@@ -76,7 +76,7 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'newOrderCtrl'
   })
 
-});
+})
 
 .factory('Partner', ['$http', function PartnerFactory($http)){
   return {
@@ -91,4 +91,4 @@ angular.module('rfbgo', ["ui.router"])
       console.log(order||this.seller);
     }
   }
-}]);
+}])
