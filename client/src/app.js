@@ -30,9 +30,9 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: ['Partner', function (Partner){
       this.seller = Partner.partner(); //partnersService.data;
-    },
+    }],
     controllerAs: 'sellerCtrl'
-  }])
+  })
 
   .state('consultant', {
     url: '/consultant',
