@@ -50,7 +50,7 @@ angular.module('rfbgo', ["ui.router"])
 
   .state('orders', {
     url: '/orders',
-    templateUrl: 'templates/orders.html',
+    templateUrl: 'templates/agent.html',
     resolve: {
       ordersService: function($http){
         return $http.get('/orders');
@@ -58,6 +58,58 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: function (ordersService){
       this.orders = ordersService.data;
+
+      this.listMode = true;
+
+      this.setListMode = function() {
+        this.listMode = true;
+      };
+
+      this.setMapMode = function() {
+        this.listMode = false;
+      };
+
+      //SELECTED LEAD ID - SET/RESET ACTIVE LEAD
+      this.activeLead = null;
+      this.ResetActiveLead = function() {
+        this.isActiveLead = null;
+      };
+      this.SetActiveLead = function(obj) {
+        this.isActiveLead = obj;
+      };
+
+      this.leads = new Array();
+      var Leads = function(position, number, state, address, tradepoint, customer, date) {
+        var lead = {};
+        lead._position=position;
+        lead._number=number;
+        lead._state=state;
+        lead._address=address;
+        lead._tradepoint=tradepoint;
+        lead._customer=customer;
+        lead._date=date;
+        lead._isActive = false;
+        lead.setActive = function() {
+          switch (lead._isActive) {
+            case true:
+              lead._isActive=false;
+              break;
+            case false:
+              lead._isActive=true;
+              break;
+          }
+        };
+        lead.takeLead = function() {
+          console.log("hey server gimme the lead " + lead._number);
+        };
+        return (lead);
+      };
+
+      var coordinates = [53.2000600, 50.1500000];
+      for (var i=0; i<data.length; i++) {
+        this.leads[i] = new Leads(coordinates, orders[i]._id, orders[i].status, orders[i].address, orders[i].tradepoint, orders[i].client, orders[i].date);
+      };
+
     },
     controllerAs: 'ordersCtrl'
   })

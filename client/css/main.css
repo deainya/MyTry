@@ -1,0 +1,108 @@
+.top-nav {
+  height:80px;
+  vertical-align: middle;
+}
+
+/*    .menu {
+position: fixed; /* Фиксированное положение
+Расстояние от правого края окна браузера
+top: 1%;
+}*/
+
+.topbar-items {
+  vertical-align: middle;
+  text-align: center;
+  width: 20%;
+}
+
+.-checked {
+  font-weight: bold;
+}
+
+.content {
+  height: 60%;
+}
+
+.info {
+  height: 20%;
+}
+
+.list-item {
+  height: 60px;
+  vertical-align: middle;
+}
+
+.map-container {
+  height: 500px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+}
+
+.list-group-item-details-text {
+  float: left;
+  width: 80%;
+}
+
+.list-group-item-details-button {
+  float: right;
+  vertical-align: middle;
+  align: right;
+  width: 20%; 
+}
+
+#menu {
+            text-transform: uppercase;
+            text-align: right;
+            line-height: 50px;
+            background: #EB1A3A;
+
+            text-shadow:0 1px 1px black;
+           -moz-border-radius: 3px;
+            -webkit-border-radius:3px;
+            border-radius:3px;
+        }
+        #menu ul {
+            padding:0;
+            margin:0;
+        }
+        #menu li{
+            display: inline;
+            list-style:none;
+            margin: 5px 5px;
+        }
+
+        #menu li a {
+            padding:5px 5px;
+            color:#fff;
+            text-decoration: none;
+
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            font-size: large;
+        }
+
+        #menu li a:hover{
+            background: #A8142C;
+            color: #ff0;
+
+            -webkit-transition-property: color, background;
+            -webkit-transition-duration: 0.5s, 0.5s;
+        }
+        .default {
+            width:920px;
+        }
+        .fixed {
+            position:fixed;
+            top:-5px; left:0;
+            width:100%;
+            padding:10px 0;
+
+            -moz-box-shadow: 5px 5px 20px #333;
+            -webkit-box-shadow: 5px 5px 20px #333;
+            box-shadow: 5px 5px 20px #333;
+        }
+        .transbg {
+            background-color: rgba(60, 130, 190, 0.7)!important;
+        }

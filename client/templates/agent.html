@@ -1,0 +1,37 @@
+<div ng-controller="ordersCtrl">
+    <div id="menu">
+    <ul>
+      <li><a href="#" ng-click="setMapMode()" ng-class="{'-checked': !listMode}"><img src=img\map_ico.png></a></li>
+      <li><a href="#" ng-click="setListMode()" ng-class="{'-checked': listMode}"><img src=img\list_ico.png></a></li>
+    </ul>
+  </div>
+  <div id="list" ng-show="listMode">
+      <div class="list-group" ng-repeat="order in ordersCtrl.leads">
+            <a href="#" class="list-group-item" ng-click="lead.setActive()">
+              <div>
+                <h4 class="list-group-item-heading">{{order._id}}</h4>
+                <p class="list-group-item-text">Address: {{order._address}}</p>
+                <p class="list-group-item-text">Point code: {{order._tradepoint}}</p>
+                <p class="list-group-item-text">Created On: {{order._date}}</p>
+              </div>
+            </a>
+              <div ng-show="lead._isActive" style="display:inline-block; width:100%; margin: 15px;" >
+                <div class="list-group-item-details-text">
+                  <p class="list-group-item-text">Partner: </p>
+                  <p class="list-group-item-text">Partner phone: </p> </br>
+                  <p class="list-group-item-text"><b>Customer: {{order._customer}}</b></p>
+                  <p class="list-group-item-text"><b>Customer phone: </b></p> </br>
+                </div>
+                <div class="list-group-item-details-button">
+                  <button class="btn btn-lg btn-danger" ng-click="order.takeLead()">Take This</button>
+                </div>
+              </div>
+      </div>
+  </div>
+  <div ng-hide="listMode">
+    <div id="map" ya-maps leads="ordersCtrl.orders" class="map-container" ></div>
+  </div>
+  <div ng-show="activeLead">
+
+  </div>
+</div>
