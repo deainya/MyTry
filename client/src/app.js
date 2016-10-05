@@ -80,7 +80,6 @@ angular.module('rfbgo', ["ui.router"])
 })
 
 .service('partner', function partnerService($http){
-  this.partner = $http.get('/partners');
   return $http.get('/partners');
 })
 /*.factory('Partner', function PartnerFactory($http){
