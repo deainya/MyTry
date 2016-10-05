@@ -28,11 +28,11 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: function (Partner){
+    controller: ['Partner', function (Partner){
       this.seller = Partner.partner(); //partnersService.data;
     },
     controllerAs: 'sellerCtrl'
-  })
+  }])
 
   .state('consultant', {
     url: '/consultant',
