@@ -56,29 +56,29 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/orders');
       }
     },
-    controller: function (ordersService){
-      this.orders = ordersService.data;
+    controller: function (ordersService, $scope){
+      $scope.orders = ordersService.data;
 
-      this.listMode = true;
+      $scope.listMode = true;
 
-      this.setListMode = function() {
-        this.listMode = true;
+      $scope.setListMode = function() {
+        $scope.listMode = true;
       };
 
-      this.setMapMode = function() {
-        this.listMode = false;
+      $scope.setMapMode = function() {
+        $scope.listMode = false;
       };
 
       //SELECTED LEAD ID - SET/RESET ACTIVE LEAD
-      this.activeLead = null;
-      this.ResetActiveLead = function() {
-        this.isActiveLead = null;
+      $scope.activeLead = null;
+      $scope.ResetActiveLead = function() {
+        $scope.isActiveLead = null;
       };
-      this.SetActiveLead = function(obj) {
-        this.isActiveLead = obj;
+      $scope.SetActiveLead = function(obj) {
+        $scope.isActiveLead = obj;
       };
 
-      this.leads = new Array();
+      $scope.leads = new Array();
       var Leads = function(position, number, state, address, tradepoint, customer, date) {
         var lead = {};
         lead._position=position;
@@ -106,8 +106,8 @@ angular.module('rfbgo', ["ui.router"])
       };
 
       var coordinates = [53.2000600, 50.1500000];
-      for (var i=0; i < this.orders.length; i++) {
-        this.leads[i] = new Leads(coordinates, this.orders[i]._id, this.orders[i].status, this.orders[i].contact.email, this.orders[i].tradepoint, this.orders[i].client, this.orders[i].date);
+      for (var i=0; i < $scope.orders.length; i++) {
+        this.leads[i] = new Leads(coordinates, $scope.orders[i]._id, $scope.orders[i].status, $scope.orders[i].contact.email, $scope.orders[i].tradepoint, $scope.orders[i].client, $scope.orders[i].date);
       };
 
     },
