@@ -82,6 +82,7 @@ angular.module('rfbgo', ["ui.router"])
   return {
     partner: function(){
       this.seller = $http.get('/partners');
+      console.log(this.seller);
       return this.seller;
     },
     neworder: function(order){
