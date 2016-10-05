@@ -31,9 +31,12 @@ angular.module('rfbgo', ["ui.router"])
     controller: ['Partner', function (Partner){
       console.log(Partner.all());
       console.log(Partner.all().data);
-
-      this.seller = Partner.all().data;
       console.log(Partner.sell);
+
+      Partner.all().then(function(data){
+        this.seller = data;
+      });
+
     }],
     controllerAs: 'sellerCtrl'
   })
@@ -83,9 +86,9 @@ angular.module('rfbgo', ["ui.router"])
 })
 
 .factory('Partner', ['$http', function PartnerFactory($http){
-  this.sell = {"xxx":"yyy"};
   return {
     all: function(){
+      this.sell = {"xxx":"yyy"};
       return $http.get('/partners');
     }/*,
     neworder: function(order){
