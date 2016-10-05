@@ -79,17 +79,17 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
-.factory('Partner', function(PartnerFactory){
+.factory("Partner", function(PartnerFactory){
   return {
     partner: function(){
-      this.p = $http.get('/partners');
-      return p;
+      this.seller = $http.get('/partners');
+      return seller;
     },
     neworder: function(order){
       $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
         $state.go("orders");
       });
-      console.log(order||p);
+      console.log(order||seller);
     }
   }
 })
