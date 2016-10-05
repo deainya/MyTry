@@ -69,7 +69,7 @@ angular.module('rfbgo', ["ui.router"])
     controller: function($stateParams, $state, $http, $rootScope, $scope, partnerService){
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
-          $http({method: 'POST', url: `/neworder`, data: {order,$scope.partnerService}}).then(function(){
+          $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");
         });
       };
