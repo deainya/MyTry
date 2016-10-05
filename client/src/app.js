@@ -43,7 +43,7 @@ angular.module('rfbgo', ["ui.router"])
       }
     },
     controller: function (consultantService){
-      this.consultant = consultantService.partner;
+      this.consultant = consultantService.data;
     },
     controllerAs: 'consultantCtrl'
   })
@@ -82,8 +82,8 @@ angular.module('rfbgo', ["ui.router"])
   return {
     partner: function(){
       this.seller = $http.get('/partners');
-      console.log(this.seller);
-      return this.seller;
+      console.log(this.seller.data);
+      return this.seller.data;
     },
     neworder: function(order){
       /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
