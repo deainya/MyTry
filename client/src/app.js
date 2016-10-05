@@ -2,21 +2,6 @@ import angular from 'angular'
 import 'angular-ui-router'
 angular.module('rfbgo', ["ui.router"])
 
-.factory("Partner", ['$http', function PartnerFactory($http)){
-  return {
-    partner: function(){
-      this.seller = $http.get('/partners');
-      return this.seller;
-    },
-    neworder: function(order){
-      /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-        $state.go("orders");
-      });*/
-      console.log(order||this.seller);
-    }
-  }
-}])
-
 .config(($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/')
 
@@ -91,4 +76,19 @@ angular.module('rfbgo', ["ui.router"])
     controllerAs: 'newOrderCtrl'
   })
 
-})
+});
+
+.factory('Partner', ['$http', function PartnerFactory($http)){
+  return {
+    partner: function(){
+      this.seller = $http.get('/partners');
+      return this.seller;
+    },
+    neworder: function(order){
+      /*$http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
+        $state.go("orders");
+      });*/
+      console.log(order||this.seller);
+    }
+  }
+}]);
