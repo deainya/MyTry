@@ -84,12 +84,12 @@ angular.module('rfbgo', ["ui.router"])
 .factory('Partner', function PartnerFactory($http){
   return {
     ppp: {},
-    par: function($http){
+    par: function(){
       return $http.get('/partners').then(function(response) {
         ppp = response.data;
         console.log(ppp); // this should print your data;
         return ppp;
-      }
+      };
     }
   }
     /*return {
