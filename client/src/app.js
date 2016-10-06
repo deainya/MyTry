@@ -29,8 +29,10 @@ angular.module('rfbgo', ["ui.router"])
       }
     },
     controller: function (partnersService, Partner){
-      this.seller = partnersService.data;
-      Partner.partner(this.seller);
+      this.sellerx = partnersService.data;
+      this.seller = Partner.par();
+      console.log(this.seller);
+      console.log(Partner.ppp);
     },
     controllerAs: 'sellerCtrl'
   })
@@ -82,7 +84,7 @@ angular.module('rfbgo', ["ui.router"])
 .factory('Partner', function PartnerFactory($http){
   return {
     ppp: {},
-    neworder: function($http){
+    par: function($http){
       return $http.get('/partners').then(function(response) {
         ppp = response.data;
         console.log(ppp); // this should print your data;
