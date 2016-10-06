@@ -22,8 +22,8 @@ angular.module('rfbgo', ["ui.router"])
 
   .state('partners', {
     url: '/partners',
-    templateUrl: 'templates/partner.html'/*,
-    resolve: {
+    templateUrl: 'templates/partner.html',
+    /*resolve: {
       partnersService: function($http){
         return $http.get('/partners');
       }
