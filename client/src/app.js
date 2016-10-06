@@ -86,9 +86,9 @@ angular.module('rfbgo', ["ui.router"])
     ppp:{},
     par: function(){
       return $http.get('/partners').then(function(response) {
-        ppp = response.data;
-        console.log(ppp); // this should print your data;
-        return ppp;
+
+        console.log(response.data); // this should print your data;
+        return response.data;
       });
     }
   }
