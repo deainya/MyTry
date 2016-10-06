@@ -28,11 +28,11 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: function (partnersService, Partner){
+    controller: function ($scope, partnersService, Partner){
       this.sellerx = partnersService.data;
       Partner.par().success(function(data){
-        this.seller = data;
-        console.log(this.seller);
+        $scope.seller = data;
+        console.log($scope.seller);
       });
 
       console.log(this.seller);
