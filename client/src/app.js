@@ -103,4 +103,4 @@ angular.module('rfbgo', ["ui.router"])
     }
   }
 })
-})
+})*/
