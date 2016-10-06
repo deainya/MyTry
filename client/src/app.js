@@ -68,14 +68,14 @@ angular.module('rfbgo', ["ui.router"])
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http, Partner){
 
-      console.log("val");
-      console.log(Partner.val);
-      console.log("getSeller");
-      console.log(Partner.getSeller());
+      console.log("Seller");
+      console.log(Partner.Seller);
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
+            console.log("concat");
+            console.log(angular.extend(order, Partner.Seller));
             $state.go("orders");
         });
       };
@@ -85,48 +85,20 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
-/*.service('partnerService', function($http){
-  this.partner = $http.get('/partners');
-  console.log(this.partner);
-})*/
-
 .factory('Partner', function PartnerFactory($http){
   return {
-    //val:{},
     getPartner: function(){
       return $http.get('/partners');
     },
     setSeller: function(seller){
       console.log("set");
-      this.val = seller;
-      console.log(this.val);
+      this.Seller = seller;
+      console.log(this.Seller);
     },
     getSeller: function(){
       console.log("get");
-      console.log(this.val);
-      return this.val;
-    }
-    //getP: $http({method: "GET", url: "/partners"}).then(function(response){
-      //console.log(response.data);
-    //  return response.data;
-    //})
-  }
-})
-
-/*.factory('Partner', function PartnerFactory($http){
-  return {
-    ppp:{},
-    par: function(){
-      return $http({method: "GET", url: "/partners"});
-    }
-  }
-    return {
-    neworder: function(order){
-      $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
-        $state.go("orders");
-      });
-      console.log(order||this.seller);
+      console.log(this.Seller);
+      return this.Seller;
     }
   }
 })
-})*/
