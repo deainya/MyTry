@@ -101,5 +101,6 @@ angular.module('rfbgo', ["ui.router"])
       });
       console.log(order||this.seller);
     }
-  }*/
+  }
+})
 })
