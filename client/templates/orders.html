@@ -6,6 +6,9 @@
       <th>Клиент</th>
       <th>Телефон</th>
       <th>E-mail</th>
+      <th>Партнер</th>
+      <th>Торговая точка</th>
+      <th>Адрес</th>
       <th>Статус</th>
     </tr>
   </thead>
@@ -14,8 +17,9 @@
       <td>{{ order.client }}</td>
       <td>{{ order.contact.phone }}</td>
       <td>{{ order.contact.email }}</td>
-      <td>{{ order.tradepoint }}</td>
-      <td>{{ order.address }}</td>
+      <td>{{ order.partner.name }}</td>
+      <td>{{ order.partner.tradepoint }}</td>
+      <td>{{ order.partner.address }}</td>
       <td>{{ order.status }}</td>
     </tr>
   </tbody>
