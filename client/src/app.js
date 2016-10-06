@@ -30,7 +30,7 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: function (partnersService, Partner){
       this.sellerx = partnersService.data;
-      this.seller = Partner.par().data;
+      this.seller = Partner.par();
       console.log(this.seller);
       console.log(Partner.ppp);
     },
@@ -85,7 +85,7 @@ angular.module('rfbgo', ["ui.router"])
   return {
     ppp:{},
     par: function(){
-      return $http.get('/partners').then(function(response) {
+      $http.get('/partners').then(function(response) {
 
         console.log(response.data); // this should print your data;
         return response.data;
