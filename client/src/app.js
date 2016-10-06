@@ -36,6 +36,7 @@ angular.module('rfbgo', ["ui.router"])
       //$scope.seller = Partner.getP;
       //console.log("getP: " + Partner.getP);
       Partner.getPartner().then(function(response){
+        console.log(response.data);
         $scope.seller = response.data;
       })
     },
@@ -92,9 +93,7 @@ angular.module('rfbgo', ["ui.router"])
 })*/
 
 .factory('Partner', function PartnerFactory($http){
-  var par = {};
   return {
-    val: {},
     getPartner: function(){
       return $http.get('/partners');
     },
