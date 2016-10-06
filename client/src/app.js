@@ -26,8 +26,8 @@ angular.module('rfbgo', ["ui.router"])
     resolve: {
       partnersService: function($http){
         return $http.get('/partners');
-      }*/
-    },
+      }
+    },*/
     controller: function ($scope, Partner){
       //this.seller = partnerService.data;
       //console.log(partnerService.partner);
