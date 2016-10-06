@@ -79,7 +79,7 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
-.service('helloWorldService', function($http){
+.service('partnerService', function($http){
   this.xpartner = $http.get('/partners').data;
   console.log(this.xpartner);
   this.partner = $http.get('/partners');
