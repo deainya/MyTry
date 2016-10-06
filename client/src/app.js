@@ -31,9 +31,10 @@ angular.module('rfbgo', ["ui.router"])
     controller: function ($scope, Partner){
       //this.seller = partnerService.data;
       //console.log(partnerService.partner);
-      var _this = this;
+      //var _this = this;
+      console.log(Partner.val);
       Partner.getPartner().then(function(response){
-        _this.seller = response.data;
+        $scope.seller = response.data;
       })
     },
     controllerAs: 'sellerCtrl'
@@ -83,19 +84,13 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
-.service('partnerService', function($http){
-
-  /*resolve: {
-    partnersService: function($http){
-    return $http.get('/partners');
-    }
-  }*/
-
+/*.service('partnerService', function($http){
   this.partner = $http.get('/partners');
   console.log(this.partner);
-})
+})*/
 
 .factory('Partner', function PartnerFactory($http){
+  var par = {};
   return {
     val: {"test":"test"},
     getPartner: function(){
