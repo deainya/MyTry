@@ -1,20 +1,20 @@
-<form class="form" name="newOrderForm" ng-submit="newOrderCtrl.addOrder(order)"/>
+<form class="form" name="newOrderForm" ng-submit="newOrderCtrl.addOrder(neworder)"/>
 
   <h2>Create order</h2>
 <br>
   <div class="form-field">
     <label class="form-label" for="client">Имя клиента:</label>
-    <input class="form-input" id="client" required ng-model="order.client"/>
+    <input class="form-input" id="client" required ng-model="neworder.client"/>
   </div>
 <br>
   <div class="form-field">
     <label class="form-label" for="phone">Номер телефона:</label>
-    <input class="form-input" id="phone" required ng-model="order.contact.phone"/>
+    <input class="form-input" id="phone" required ng-model="neworder.contact.phone"/>
   </div>
 <br>
   <div class="form-field">
     <label class="form-label" for="email">E-mail:</label>
-    <input class="form-input" id="email" ng-model="order.contact.email"/>
+    <input class="form-input" id="email" ng-model="neworder.contact.email"/>
   </div>
 <br>
   <input type="submit" value="Создать" />
@@ -22,4 +22,4 @@
 </form>
 
 <p>Two-way binding information</p>
-{{ order }}
+{{ neworder }}
