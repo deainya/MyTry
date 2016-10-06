@@ -33,11 +33,12 @@ angular.module('rfbgo', ["ui.router"])
       //console.log(partnerService.partner);
       //var _this = this;
       //console.log("val: " + Partner.val);
-      $scope.seller = Partner.getP;
-      console.log("getP: " + Partner.getP);
-      //Partner.getPartner().then(function(response){
-      //  $scope.seller = response.data;
-      //})
+      //$scope.seller = Partner.getP;
+      //console.log("getP: " + Partner.getP);
+      Partner.getPartner().then(function(response){
+        $scope.seller = response.data;
+        Partner.setSeller(response.data);
+      })
     },
     controllerAs: 'sellerCtrl'
   })
@@ -94,14 +95,17 @@ angular.module('rfbgo', ["ui.router"])
 .factory('Partner', function PartnerFactory($http){
   var par = {};
   return {
-    val: "test",
-    //getPartner: function(){
-    //  return $http.get('/partners');
-    //},
-    getP: $http({method: "GET", url: "/partners"}).then(function(response){
+    val: {},
+    getPartner: function(){
+      return $http.get('/partners');
+    },
+    setSeller: function(seller){
+      this.val = seller;
+    }
+    //getP: $http({method: "GET", url: "/partners"}).then(function(response){
       //console.log(response.data);
-      return response.data;
-    })
+    //  return response.data;
+    //})
   }
 })
 
