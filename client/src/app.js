@@ -79,7 +79,8 @@ angular.module('rfbgo', ["ui.router"])
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http, Partner){
 
-      console.log("test" + Partner.val);
+      console.log("chk " + Partner.getSeller());
+      console.log("chk " + Partner.val);
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
@@ -99,13 +100,18 @@ angular.module('rfbgo', ["ui.router"])
 })*/
 
 .factory('Partner', function PartnerFactory($http){
+//var val = {};
   return {
     getPartner: function(){
       return $http.get('/partners');
     },
     setSeller: function(seller){
       this.val = seller;
-      console.log(this.val);
+      console.log("set " + this.val);
+    },
+    getSeller: function(){
+      console.log("get " + this.val);
+      return this.val;
     }
     //getP: $http({method: "GET", url: "/partners"}).then(function(response){
       //console.log(response.data);
