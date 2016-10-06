@@ -32,8 +32,7 @@ angular.module('rfbgo', ["ui.router"])
       this.seller = partnersService.data;
 
       Partner.setSeller(this.seller);
-      console.log(Partner.val);
-      
+
       //var _this = this;
       //console.log("val: " + Partner.val);
       //$scope.seller = Partner.getP;
@@ -78,7 +77,10 @@ angular.module('rfbgo', ["ui.router"])
   .state('neworder', {
     url: '/neworder',
     templateUrl: 'templates/new-order.html',
-    controller: function($stateParams, $state, $http){
+    controller: function($stateParams, $state, $http, Partner){
+
+      console.log("test" + Partner.val);
+
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
