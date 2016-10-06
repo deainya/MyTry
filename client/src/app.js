@@ -80,11 +80,16 @@ angular.module('rfbgo', ["ui.router"])
 })
 
 .factory('Partner', function PartnerFactory($http){
-  this.partner = function(data){
-    this.partner = data;
-    console.log(this.partner);
-  }/*,
-    return {
+  return {
+    ppp: {},
+    neworder: function($http){
+      return $http.get('/partners').then(function(response) {
+        ppp = response.data;
+        console.log(ppp); // this should print your data;
+        return ppp;
+    }
+  };
+    /*return {
     neworder: function(order){
       $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
         $state.go("orders");
