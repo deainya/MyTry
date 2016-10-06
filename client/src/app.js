@@ -33,7 +33,7 @@ angular.module('rfbgo', ["ui.router"])
       //console.log(partnerService.partner);
       //var _this = this;
       //console.log("val: " + Partner.val);
-      this.seller = Partner.getP;
+      $scope.seller = Partner.getP;
       console.log("getP: " + Partner.getP);
       //Partner.getPartner().then(function(response){
       //  $scope.seller = response.data;
