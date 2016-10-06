@@ -89,6 +89,7 @@ angular.module('rfbgo', ["ui.router"])
         ppp = response.data;
         console.log(ppp); // this should print your data;
         return ppp;
+      }
     }
   };
     /*return {
