@@ -23,7 +23,7 @@ app.get("/tradepoints", (request, response) => {
 
 app.get("/partners", (request, response) => {
   let seller = mongoUtil.partners();
-  seller.find().limit(1).next((err,doc) => {
+  seller.find({},{"_id":false}).limit(1).next((err,doc) => {
     if(err) { response.sendStatus(400); }
     console.log( JSON.stringify(doc) );
     response.json( doc );
