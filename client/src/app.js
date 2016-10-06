@@ -75,7 +75,7 @@ angular.module('rfbgo', ["ui.router"])
           //$http.post('/neworder', {order});
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             console.log("concat");
-            console.log(angular.extend(order, {"partner":{Partner.Seller}}));
+            console.log(angular.extend(order, {partner:Partner.Seller}));
             $state.go("orders");
         });
       };
