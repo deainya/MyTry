@@ -22,21 +22,22 @@ angular.module('rfbgo', ["ui.router"])
 
   .state('partners', {
     url: '/partners',
-    templateUrl: 'templates/partner.html',
+    templateUrl: 'templates/partner.html'/*,
     resolve: {
       partnersService: function($http){
         return $http.get('/partners');
-      }
+      }*/
     },
     controller: function ($scope, Partner){
       //this.seller = partnerService.data;
       //console.log(partnerService.partner);
       //var _this = this;
-      console.log("val: " + Partner.val);
-      console.log("getP: " + Partner.getP.data);
-      Partner.getPartner().then(function(response){
-        $scope.seller = response.data;
-      })
+      //console.log("val: " + Partner.val);
+      this.seller = Partner.getP;
+      console.log("getP: " + Partner.getP);
+      //Partner.getPartner().then(function(response){
+      //  $scope.seller = response.data;
+      //})
     },
     controllerAs: 'sellerCtrl'
   })
@@ -94,11 +95,11 @@ angular.module('rfbgo', ["ui.router"])
   var par = {};
   return {
     val: "test",
-    getPartner: function(){
-      return $http.get('/partners');
-    },
+    //getPartner: function(){
+    //  return $http.get('/partners');
+    //},
     getP: $http({method: "GET", url: "/partners"}).then(function(response){
-      console.log(response.data);
+      //console.log(response.data);
       return response.data;
     })
   }
