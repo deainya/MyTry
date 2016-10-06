@@ -23,22 +23,26 @@ angular.module('rfbgo', ["ui.router"])
   .state('partners', {
     url: '/partners',
     templateUrl: 'templates/partner.html',
-    /*resolve: {
+    resolve: {
       partnersService: function($http){
         return $http.get('/partners');
       }
-    },*/
-    controller: function ($scope, Partner){
-      //this.seller = partnerService.data;
-      //console.log(partnerService.partner);
+    },
+    controller: function ($scope, partnersService, Partner){
+      this.seller = partnersService.data;
+
+      Partner.setSeller(this.seller);
+      console.log(Partner.val);
+      
       //var _this = this;
       //console.log("val: " + Partner.val);
       //$scope.seller = Partner.getP;
       //console.log("getP: " + Partner.getP);
-      Partner.getPartner().then(function(response){
+
+      /*Partner.getPartner().then(function(response){
         console.log(response.data);
         $scope.seller = response.data;
-      })
+      })*/
     },
     controllerAs: 'sellerCtrl'
   })
