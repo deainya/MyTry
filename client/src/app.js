@@ -102,6 +102,7 @@ angular.module('rfbgo', ["ui.router"])
 .factory('Partner', function PartnerFactory($http){
 //var val = {};
   return {
+    val:{},
     getPartner: function(){
       return $http.get('/partners');
     },
