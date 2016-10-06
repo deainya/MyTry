@@ -82,6 +82,8 @@ angular.module('rfbgo', ["ui.router"])
 
 })
 
+var xxx = {}
+
 .factory('Partner', function PartnerFactory($http){
   return {
     ppp:{},
