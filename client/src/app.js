@@ -85,11 +85,11 @@ angular.module('rfbgo', ["ui.router"])
 
 .service('partnerService', function($http){
 
-  resolve: {
+  /*resolve: {
     partnersService: function($http){
     return $http.get('/partners');
     }
-  }
+  }*/
 
   this.partner = $http.get('/partners');
   console.log(this.partner);
