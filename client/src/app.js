@@ -32,8 +32,8 @@ angular.module('rfbgo', ["ui.router"])
       //this.seller = partnerService.data;
       //console.log(partnerService.partner);
       //var _this = this;
-      console.log("val: "Partner.val);
-      console.log("getP: "+Partner.getP);
+      console.log("val: " + Partner.val);
+      console.log("getP: " + Partner.getP);
       Partner.getPartner().then(function(response){
         $scope.seller = response.data;
       })
