@@ -30,7 +30,11 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: function (partnersService, Partner){
       this.sellerx = partnersService.data;
-      this.seller = Partner.par();
+      Partner.par().success(function(data){
+        this.seller = data;
+        console.log(this.seller);
+      });
+
       console.log(this.seller);
       console.log(Partner.ppp);
       console.log(Partner.xxx);
