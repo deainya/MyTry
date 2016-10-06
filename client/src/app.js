@@ -37,7 +37,6 @@ angular.module('rfbgo', ["ui.router"])
       //console.log("getP: " + Partner.getP);
       Partner.getPartner().then(function(response){
         $scope.seller = response.data;
-        Partner.setSeller(response.data);
       })
     },
     controllerAs: 'sellerCtrl'
@@ -101,6 +100,7 @@ angular.module('rfbgo', ["ui.router"])
     },
     setSeller: function(seller){
       this.val = seller;
+      console.log(this.val);
     }
     //getP: $http({method: "GET", url: "/partners"}).then(function(response){
       //console.log(response.data);
