@@ -28,10 +28,10 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: function ($scope, partnersService, Partner){
+    controller: function (partnersService, Partner){
       this.seller = partnersService.data;
-
       Partner.setSeller(this.seller);
+      console.log("chk0 " + this.seller);
 
       //var _this = this;
       //console.log("val: " + Partner.val);
@@ -79,8 +79,8 @@ angular.module('rfbgo', ["ui.router"])
     templateUrl: 'templates/new-order.html',
     controller: function($stateParams, $state, $http, Partner){
 
-      console.log("chk " + Partner.getSeller());
-      console.log("chk " + Partner.val);
+      console.log("chk1 " + Partner.getSeller());
+      console.log("chk2 " + Partner.val);
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
@@ -100,15 +100,15 @@ angular.module('rfbgo', ["ui.router"])
 })*/
 
 .factory('Partner', function PartnerFactory($http){
-//var val = {};
+var val = {};
   return {
-    val:{},
+    //val:{},
     getPartner: function(){
       return $http.get('/partners');
     },
     setSeller: function(seller){
       this.val = seller;
-      console.log("set " + this.val);
+      console.log(this.val);
     },
     getSeller: function(){
       console.log("get " + this.val);
