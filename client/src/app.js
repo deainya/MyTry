@@ -91,7 +91,7 @@ angular.module('rfbgo', ["ui.router"])
         return ppp;
       }
     }
-  };
+  }
     /*return {
     neworder: function(order){
       $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
