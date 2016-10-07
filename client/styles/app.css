@@ -26,7 +26,7 @@
 body {
   background: white;
   color: #333;
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -224,7 +224,7 @@ a {
 -----------------------------------------------*/
 
 .header {
-  background-color: #ff0033;
+  background-color: #cc0033;
   margin-bottom: 40px;
   padding: 40px;
   padding-top: 100px;
