@@ -224,7 +224,7 @@ a {
 -----------------------------------------------*/
 
 .header {
-  background-color: #cc0033;
+  background-color: #ff6666;
   margin-bottom: 40px;
   padding: 40px;
   padding-top: 100px;
@@ -249,7 +249,7 @@ a {
 -----------------------------------------------*/
 
 .logo {
-  color: #fff;
+  /*color: #fff;*/
   margin-bottom: 0;
 }
 
