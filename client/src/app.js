@@ -73,10 +73,8 @@ angular.module('rfbgo', ["ui.router"])
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
-          var no = angular.extend(order, {partner:Partner.Seller});
-          console.log(no);
-          console.log(JSON.stringify(no));
-          console.log(JSON.parse(JSON.stringify(no)));
+          angular.extend(order, {partner:Partner.Seller});
+
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");
         });
