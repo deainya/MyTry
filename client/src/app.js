@@ -73,7 +73,7 @@ angular.module('rfbgo', ["ui.router"])
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
-          angular.extend(order, {partner:Partner.Seller});
+          angular.extend(order, {partner:Partner.Seller}, {"status":"InQueue"});
 
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");
