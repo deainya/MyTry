@@ -180,7 +180,7 @@ a {
   box-sizing: border-box;
   flex-basis: 50%;
   padding: 10px;
-  width: 100%;
+  width: 75%;
 }
 
 .form-input:focus {
@@ -227,7 +227,7 @@ a {
   background-color: #ff9999;
   margin-bottom: 40px;
   padding: 40px;
-  padding-top: 100px;
+  padding-top: 40px;
 }
 
 /*-----------------------------------------------
