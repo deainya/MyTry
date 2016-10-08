@@ -111,6 +111,7 @@ angular.module('rfbgo', ["ui.router"])
   var avatarUrl = "http://www.gravatar.com/avatar/";
   return {
     generate: function(email){
+      console.log(CryptoJS.MD5(email));
       return avatarUrl + CryptoJS.MD5(email) + "?size=" + avatarSize.toString();
     }
   };
