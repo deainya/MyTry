@@ -15,14 +15,12 @@
   <body>
     <div class="header">
       <div class="cell">
-        <table><tr valign="center"><td><a ui-sref="partners"><img src="images/logo.png"/></a></td><td><h1 class="logo"> RFB-GO</h1></td></tr></table>
+        <!--table><tr valign="center"><td><a ui-sref="partners"><img src="images/logo.png"/></a></td><td><h1 class="logo"> RFB-GO</h1></td></tr></table-->
+        <a ui-sref="partners"><img src="images/logo.png"/></a><h1 class="logo"> RFB-GO</h1>
       </div>
     </div>
 
     <div class="cell">
-      <p> Here should be some "Login", "Sign in" buttons. </p>
-      <p> And then the redirect to Consultant or Partner page... </p>
-
       <div class="sports-list">
         <ul class="grid list list--unstyled mbl" ng-cloak>
           <li><div class="card">
@@ -39,6 +37,11 @@
     </div>
 
     <div class="cell" ui-view></div>
+
+    <!--div class="cell">
+      <p> There should be some "Login", "Sign in" buttons. </p>
+      <p> And then the redirect to Consultant or Partner page... </p>
+    </div-->
 
     <script src="dist/bundle.js"></script>
   </body>
