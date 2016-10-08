@@ -3,7 +3,7 @@ import 'angular-ui-router'
 angular.module('rfbgo', ["ui.router"])
 
 .config(($stateProvider, $urlRouterProvider) => {
-  $urlRouterProvider.otherwise('/')
+  $urlRouterProvider.otherwise('/partners')
 
   $stateProvider
   .state('tradepoints', {

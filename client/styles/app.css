@@ -224,7 +224,7 @@ a {
 -----------------------------------------------*/
 
 .header {
-  background-color: #ff6666;
+  background-color: #ff9999;
   margin-bottom: 40px;
   padding: 40px;
   padding-top: 100px;
@@ -293,6 +293,49 @@ a {
 }
 
 .table th:last-child {
+  border-right: 0;
+}
+
+/*-----------------------------------------------
+*   TableX
+-----------------------------------------------*/
+
+.tablex {
+  /*border: 1px solid #bfc0c0;*/
+  border-collapse: inherit;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.tablex thead,
+.tablex td {
+  /*border-right: 1px solid #bfc0c0;*/
+  border-top: 1px solid #bfc0c0;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px 20px;
+  vertical-align: top;
+}
+
+
+.tablex thead:last-child,
+.tablex td:last-child {
+  border-right: 0;
+}
+
+.tablex thead {
+  border-top: 0;
+  text-align: left;
+}
+
+.tablex th {
+  /*border-right: 1px solid #bfc0c0;*/
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.tablex th:last-child {
   border-right: 0;
 }
 
