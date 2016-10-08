@@ -3,6 +3,10 @@
 <table class="tablex">
   <tbody>
     <tr>
+      <td><img ng-src='{{sellerCtrl.gravatarUrl(sellerCtrl.email)}}' ng-if='image'></td>
+      <td></td>
+    </tr>
+    <tr>
       <td>Партнёр:</td>
       <td>{{ sellerCtrl.seller.name }}</td>
     </tr>

@@ -28,9 +28,12 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/partners');
       }
     },
-    controller: function (partnersService, Partner){
+    controller: function (partnersService, Partner, Gravatar){
       this.seller = partnersService.data;
       Partner.setSeller(this.seller);
+      this.gravatarUrl = function(email) {
+        return Gravatar(email);
+      }
     },
     controllerAs: 'sellerCtrl'
   })
@@ -101,4 +104,14 @@ angular.module('rfbgo', ["ui.router"])
       return this.Seller;
     }
   }
+})
+
+.factory('Gravatar', function GravatarFactory(){
+  var avatarSize = 80;
+  var avatarUrl = "http://www.gravatar.com/avatar/";
+  return {
+    generate: function(email){
+      return avatarUrl + CryptoJS.MD5(email) + "?size=" + avatarSize.toString();
+    }
+  };
 })
