@@ -31,7 +31,7 @@ angular.module('rfbgo', ["ui.router"])
     controller: function (partnersService, Partner, Gravatar){
       this.seller = partnersService.data;
       Partner.setSeller(this.seller);
-      this.gravatarUrl = Gravatar(this.seller.email);
+      this.gravatarUrl = Gravatar.generate(this.seller.email);
     },
     controllerAs: 'sellerCtrl'
   })
