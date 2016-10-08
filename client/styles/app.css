@@ -301,7 +301,7 @@ a {
 -----------------------------------------------*/
 
 .tablex {
-  /*border: 1px solid #bfc0c0;*/
+  border: 1px solid #bfc0c0;
   border-collapse: inherit;
   border-radius: 8px;
   margin-bottom: 20px;
