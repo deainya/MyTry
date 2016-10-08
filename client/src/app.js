@@ -44,8 +44,9 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/consultant');
       }
     },
-    controller: function (consultantService){
+    controller: function (consultantService, Gravatar){
       this.consultant = consultantService.data;
+      this.gravatarUrl = Gravatar.generate(this.seller.email);
     },
     controllerAs: 'consultantCtrl'
   })
