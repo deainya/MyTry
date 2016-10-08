@@ -106,7 +106,7 @@ a {
 .card-link {
   color: #bfc0c0;
   display: block;
-  padding: 20px;
+  padding: 10px;
   position: relative;
   transition: 0.2s ease-in-out;
 }
@@ -305,13 +305,13 @@ a {
   border-collapse: inherit;
   border-radius: 8px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 50%;
 }
 
 .tablex thead,
 .tablex td {
-  /*border-right: 1px solid #bfc0c0;*/
-  border-top: 1px solid #bfc0c0;
+  /*border-right: 1px solid #bfc0c0;
+  border-top: 1px solid #bfc0c0;*/
   font-size: 14px;
   line-height: 1.5;
   padding: 10px 20px;
