@@ -14,18 +14,16 @@
     </tr>
   </thead>
   <tbody>
-    <div ng-repeat="order in ordersCtrl.orders">
-      <tr>
-        <td>{{ order.client }}</td>
-        <td>{{ order.contact.phone }}</td>
-        <!--td>{{ order.contact.email }}</td-->
-        <td>{{ order.partner.name }}</td>
-        <td>{{ order.partner.tradepoint }}</td>
-        <td>{{ order.partner.address }}</td>
-        <td>{{ order.status }}</td>
-        <td> <a class="btn" href="#">Отменить</a></td>
-      </tr>
-    </div>
+    <tr ng-repeat="order in ordersCtrl.orders">
+      <td>{{ order.client }}</td>
+      <td>{{ order.contact.phone }}</td>
+      <!--td>{{ order.contact.email }}</td-->
+      <td>{{ order.partner.name }}</td>
+      <td>{{ order.partner.tradepoint }}</td>
+      <td>{{ order.partner.address }}</td>
+      <td>{{ order.status }}</td>
+      <td> <a class="btn" href="#">Отменить</a> </td>
+    </tr>
   </tbody>
 </table>
 
