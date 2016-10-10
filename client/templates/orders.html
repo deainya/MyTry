@@ -10,6 +10,7 @@
       <th>Торговая точка</th>
       <th>Адрес</th>
       <th>Статус</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -22,12 +23,7 @@
         <td>{{ order.partner.tradepoint }}</td>
         <td>{{ order.partner.address }}</td>
         <td>{{ order.status }}</td>
-        <td> <a class="btn" href="#">Hz</a></td>
-      </tr>
-      <tr ng-show="order.status === 'InQueue'">
-        <td>
-          XXX
-        </td>
+        <td> <a class="btn" href="#">Отменить</a></td>
       </tr>
     </div>
   </tbody>
