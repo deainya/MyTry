@@ -61,6 +61,9 @@ angular.module('rfbgo', ["ui.router"])
     },
     controller: function (ordersService){
       this.orders = ordersService.data;
+      this.Cancel = function(orderid){
+        console.log(orderid);
+      };
     },
     controllerAs: 'ordersCtrl'
   })
