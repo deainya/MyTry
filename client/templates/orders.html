@@ -10,7 +10,7 @@
       <th>Торговая точка</th>
       <th>Адрес</th>
       <th>Статус</th>
-      <th> </th>
+      <th>Действие</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,11 @@
       <td>{{ order.partner.tradepoint }}</td>
       <td>{{ order.partner.address }}</td>
       <td>{{ order.status }}</td>
-      <td> <a class="btn" href="#">Отменить</a> </td>
+      <td>
+        <form ng-submit="OrdersCtrl.cancelOrder(order._id)"/>
+          <input class="btn" type="submit" value="Отменить" />
+        </form>
+      </td>
     </tr>
   </tbody>
 </table>
