@@ -63,6 +63,9 @@ angular.module('rfbgo', ["ui.router"])
       this.orders = ordersService.data;
       this.Cancel = function(orderid){
         console.log(orderid);
+        $http({method: 'POST', url: `/cancelorder`, data: {orderid}}).then(function(){
+          $state.go("orders");
+        };
       };
     },
     controllerAs: 'ordersCtrl'
@@ -78,7 +81,7 @@ angular.module('rfbgo', ["ui.router"])
 
       this.addOrder = function(order){
           //$http.post('/neworder', {order});
-          angular.extend(order, {partner:Partner.Seller}, {"status":"InQueue"});
+          angular.extend(order, {partner:Partner.Seller}, {"status":"Новый"});
 
           $http({method: 'POST', url: `/neworder`, data: {order}}).then(function(){
             $state.go("orders");

@@ -68,6 +68,17 @@ app.post("/neworder", jsonParser, (request, response) => {
   });*/
 });
 
+app.post("/cancelorder", jsonParser, (request, response) => {
+  let OrderID = request.body.orderid || {};
+  let orders = mongoUtil.orders();
+
+  orders.findOneAndUpdate({_id: OrderID}, {$push: {Status: "Отменён"}}, function(err, result){
+    if(err) { response.sendStatus(400); }
+    console.log( "Cancel order: " + JSON.stringify(OrderID) );
+    response.sendStatus(201);
+  });
+});
+
 
 
 app.listen(3001, () => console.log( "Listening on 3001" ) );
