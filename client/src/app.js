@@ -65,7 +65,7 @@ angular.module('rfbgo', ["ui.router"])
         console.log(orderid);
         $http({method: 'POST', url: `/cancelorder`, data: {orderid}}).then(function(){
           $state.go("orders");
-        };
+        });
       };
     },
     controllerAs: 'ordersCtrl'
