@@ -26,5 +26,6 @@ module.exports = {
   },
   orders(){
     return _db.collection('orders');
-  }
+  },
+  var ObjectID = mongo.ObjectID;
 }
