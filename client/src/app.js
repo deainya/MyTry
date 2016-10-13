@@ -59,7 +59,7 @@ angular.module('rfbgo', ["ui.router"])
         return $http.get('/orders');
       }
     },
-    controller: function (ordersService, $http){
+    controller: function (ordersService, $state, $http){
       this.orders = ordersService.data;
       this.Cancel = function(orderid){
         console.log(orderid);

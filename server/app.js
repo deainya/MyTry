@@ -72,7 +72,7 @@ app.post("/cancelorder", jsonParser, (request, response) => {
   let OrderID = request.body.orderid || {};
   let orders = mongoUtil.orders();
   let query = {_id: OrderID};
-  let update = {$push: {status: "Отменён"}};
+  let update = {$set: {status: "Отменён"}};
 
   orders.findOneAndUpdate({_id: OrderID}, {$push: {status: "Отменён"}}, function(err, result){
     if(err) { response.sendStatus(400); }
