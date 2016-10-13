@@ -70,12 +70,12 @@ app.post("/neworder", jsonParser, (request, response) => {
 
 app.post("/cancelorder", jsonParser, (request, response) => {
   let OrderID = request.body.orderid || {};
-  let id = new mongoUtil.ObjectID(OrderID);
+  let oid = new mongoUtil.ObjectID(OrderID);
   let orders = mongoUtil.orders();
-  let query = {_id: OrderID};
+  let query = {_id: oid};
   let update = {$set: {status: "Отменён"}};
 
-  orders.findOneAndUpdate({_id: id}, {$set: {status: "Отменён"}}, function(err, result){
+  orders.findOneAndUpdate({_id: oid}, {$set: {status: "Отменён"}}, function(err, result){
     if(err) { response.sendStatus(400); }
     console.log( "Cancel order: " + JSON.stringify(OrderID) );
     console.log( "Q: " + JSON.stringify(query) );

@@ -4,6 +4,8 @@ let mongo = require('mongodb');
 let client = mongo.MongoClient;
 let _db;
 
+exports.ObjectID = mongo.ObjectID;
+
 module.exports = {
   connect() {
     client.connect('mongodb://user:pass@localhost:27017/partnergo-dev', (err, db) => {
@@ -26,6 +28,5 @@ module.exports = {
   },
   orders(){
     return _db.collection('orders');
-  },
-  var ObjectID = mongo.ObjectID;
+  }
 }
