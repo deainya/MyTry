@@ -74,7 +74,7 @@ app.post("/cancelorder", jsonParser, (request, response) => {
   let query = {_id: OrderID};
   let update = {$set: {status: "Отменён"}};
 
-  orders.findOneAndUpdate({_id: ObjectId(OrderID)}, {$push: {status: "Отменён"}}, function(err, result){
+  orders.findOneAndUpdate({_id: ObjectId(OrderID).toString()}, {$push: {status: "Отменён"}}, function(err, result){
     if(err) { response.sendStatus(400); }
     console.log( "Cancel order: " + JSON.stringify(OrderID) );
     console.log( "Q: " + JSON.stringify(query) );
