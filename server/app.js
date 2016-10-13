@@ -71,10 +71,14 @@ app.post("/neworder", jsonParser, (request, response) => {
 app.post("/cancelorder", jsonParser, (request, response) => {
   let OrderID = request.body.orderid || {};
   let orders = mongoUtil.orders();
+  let query = {_id: OrderID};
+  let update = {$push: {status: "Отменён"}};
 
-  orders.findOneAndUpdate({_id: OrderID}, {$push: {Status: "Отменён"}}, function(err, result){
+  orders.findOneAndUpdate({_id: OrderID}, {$push: {status: "Отменён"}}, function(err, result){
     if(err) { response.sendStatus(400); }
     console.log( "Cancel order: " + JSON.stringify(OrderID) );
+    console.log( "Q: " + JSON.stringify(query) );
+    console.log( "U: " + JSON.stringify(update) );
     response.sendStatus(201);
   });
 });

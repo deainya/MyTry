@@ -67,6 +67,10 @@ angular.module('rfbgo', ["ui.router"])
           $state.go("orders");
         });
       };
+      this.isCancel = function(status){
+        return status !== "Отменён";
+      };
+
     },
     controllerAs: 'ordersCtrl'
   })
