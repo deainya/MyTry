@@ -69,8 +69,9 @@ app.post("/neworder", jsonParser, (request, response) => {
 });
 
 app.post("/cancelorder", jsonParser, (request, response) => {
+  var ObjectID = require('mongodb').ObjectID;
   let OrderID = request.body.orderid || {};
-  let oid = new mongoUtil.ObjectID(OrderID);
+  let oid = new ObjectID(OrderID);
   let orders = mongoUtil.orders();
   let query = {_id: oid};
   let update = {$set: {status: "Отменён"}};
