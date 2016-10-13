@@ -64,7 +64,7 @@ angular.module('rfbgo', ["ui.router"])
       this.Cancel = function(orderid){
         console.log(orderid);
         $http({method: 'POST', url: `/cancelorder`, data: {orderid}}).then(function(){
-          $state.go("orders");
+          $state.reload();
         });
       };
       this.isCancel = function(status){
