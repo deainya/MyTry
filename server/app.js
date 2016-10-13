@@ -69,18 +69,13 @@ app.post("/neworder", jsonParser, (request, response) => {
 });
 
 app.post("/cancelorder", jsonParser, (request, response) => {
-  var ObjectID = require('mongodb').ObjectID;
   let OrderID = request.body.orderid || {};
-  let oid = new ObjectID(OrderID);
+  var ObjectID = require('mongodb').ObjectID;
   let orders = mongoUtil.orders();
-  let query = {_id: oid};
-  let update = {$set: {status: "Отменён"}};
 
-  orders.findOneAndUpdate({_id: oid}, {$set: {status: "Отменён"}}, function(err, result){
+  orders.findOneAndUpdate({_id: new ObjectID(OrderID)}, {$set: {status: "Отменён"}}, function(err, result){
     if(err) { response.sendStatus(400); }
     console.log( "Cancel order: " + JSON.stringify(OrderID) );
-    console.log( "Q: " + JSON.stringify(query) );
-    console.log( "U: " + JSON.stringify(update) );
     response.sendStatus(201);
   });
 });
