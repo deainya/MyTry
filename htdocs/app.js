@@ -59,8 +59,27 @@ app.post("/neworder", jsonParser, (request, response) => {
     console.log( "Added new order: " + JSON.stringify(newOrder) );
     response.sendStatus(201);
   });
+  //let orders = mongoUtil.orders();
+  //let query = {name: sportName};
+  //let update = {$push: {goldMedals: newMedal}};
+  /*sports.findOneAndUpdate(query, update, (err, res) => {
+    if(err){ response.sendStatus(400); }
+    response.sendStatus(201);
+  });*/
+});
+
+app.post("/cancelorder", jsonParser, (request, response) => {
+  let OrderID = request.body.orderid || {};
+  var ObjectID = require('mongodb').ObjectID;
+  let orders = mongoUtil.orders();
+
+  orders.findOneAndUpdate({_id: new ObjectID(OrderID)}, {$set: {status: "Отменён"}}, function(err, result){
+    if(err) { response.sendStatus(400); }
+    console.log( "Cancel order: " + JSON.stringify(OrderID) );
+    response.sendStatus(201);
+  });
 });
 
 
 
-app.listen(3000, () => console.log( "Listening on 3000" ) );
+app.listen(3001, () => console.log( "Listening on 3001" ) );
